@@ -39,6 +39,34 @@ At the same time, the platform ensures:
 
 ---
 
+## Pipeline-Level Documentation
+
+Each business domain in RSCLP is implemented as an **independent, production-grade pipeline** with its own orchestration, validation, and Delta Live Tables logic.
+
+Click below to explore **detailed architecture, data flow, and failure handling** for each pipeline:
+
+### 🧾 Master Data Management
+- [Product Master (SCD Type 2)](./pipelines/master-data/product-master.md)
+- [Product Price History (SCD Type 2)](./pipelines/master-data/product-price-history.md)
+- [Supplier Cost Price History (SCD Type 2)](./pipelines/master-data/supplier-cost-price-history.md)
+
+### 🛒 Daily Sales
+- [Daily Sales Pipeline](./pipelines/daily-sales.md)
+
+### 🚚 Inbound Deliveries
+- [Inbound Deliveries Pipeline](./pipelines/inbound-deliveries.md)
+
+### 📦 Inventory Management
+- [Inventory Update Pipeline](./pipelines/inventory.md)
+
+### 🧾 Supplier Orders
+- [Supplier Orders Pipeline](./pipelines/supplier-orders.md)
+
+### 💰 Daily Profit Computation
+- [Daily Profit Pipeline](./pipelines/daily-profits.md)
+
+---
+
 ### Orchestration
 
 - **Azure Data Factory (ADF)** orchestrates the entire workflow
