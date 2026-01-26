@@ -131,8 +131,3 @@ This repository documents:
 - Orchestration patterns
 - Data governance and testing strategy
 
-**Target audience:**
-
-- Hiring managers
-- Data engineering interviewers
-- Solution architects
