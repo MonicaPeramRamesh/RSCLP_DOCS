@@ -10,7 +10,7 @@ This repository serves as the **official technical documentation and proof-of-wo
 
 | Repository                 | Purpose                                                  |
 | -------------------------- | -------------------------------------------------------- |
-| **RSCLP_ADB**              | Databricks DLT pipelines, notebooks, jobs                |
+| **RSCLP_ADB**              | Databricks DLT pipelines, notebooks                      |
 | **RSCLP_TEST**             | PyTest-based data quality and pipeline validation tests  |
 | **RSCLP_DOCS (this repo)** | Architecture, pipeline design, orchestration, dashboards |
 
@@ -140,16 +140,6 @@ Power BI dashboards built on Gold-layer Delta tables:
 * Schema enforcement & data quality expectations
 * Fault-tolerant orchestration with alerts
 * Enterprise CI/CD with automated testing
-
----
-
-## 📎 Who This Repository Is For
-
-* Hiring Managers
-* Data Engineering Interviewers
-* Architects reviewing real-world Azure Databricks implementations
-
-This repository focuses on **design decisions, architecture, and production practices**, not just code.
 
 ---
 
