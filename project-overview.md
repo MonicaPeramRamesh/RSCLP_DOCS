@@ -1,14 +1,15 @@
-Project Overview – Retail Supply Chain Lakehouse Platform (RSCLP)
-Business Context
+🏪 Project Overview – Retail Supply Chain Lakehouse Platform (RSCLP)
+🧩 Business Context
 
 The Retail Supply Chain Lakehouse Platform (RSCLP) models how data is managed for a single retail brand (example: “Daisy”) operating multiple stores.
-In the current implementation, the platform represents one location with three suppliers, focusing on how daily retail operations are tracked, governed, and analyzed.
 
-The objective of this project is to demonstrate how store activities such as sales, deliveries, inventory movements, supplier orders, and profits can be reliably managed using modern cloud data engineering practices.
+In the current implementation, the platform represents one operational location with three suppliers, focusing on how daily retail activities are tracked, governed, and analyzed.
 
-What This Platform Solves
+The objective of this project is to demonstrate how sales, deliveries, inventory movements, supplier orders, and profit calculations can be reliably managed using modern cloud data engineering practices.
 
-RSCLP answers key operational and analytical questions for a retail store, such as:
+🎯 What This Platform Solves
+
+RSCLP answers key operational and analytical questions for a retail store, including:
 
 What products were sold each hour?
 
@@ -22,17 +23,16 @@ What is the daily profit at store and product level?
 
 At the same time, the platform ensures:
 
-Data quality before processing
+✅ Data quality before processing
 
-Controlled updates to inventory
+✅ Controlled and validated inventory updates
 
-Auditability of master data changes
+✅ Auditability of master data changes
 
-Analytics-ready datasets for reporting teams
+✅ Analytics-ready datasets for reporting teams
 
-End-to-End Data Flow
-
-Operational Data Generation
+🔄 End-to-End Data Flow
+📥 Operational Data Generation
 
 Sales transactions generated during store operations
 
@@ -40,23 +40,31 @@ Delivery and supplier order records from suppliers
 
 Master data maintained through controlled Excel uploads
 
-Orchestration
+🧭 Orchestration
 
-Azure Data Factory (ADF) orchestrates the entire flow
+Azure Data Factory (ADF) orchestrates the entire workflow
 
-Scheduled triggers for sales, deliveries, profits, and orders
+Scheduled triggers for:
+
+Sales
+
+Deliveries
+
+Profits
+
+Supplier orders
 
 Event-based triggers for master data uploads
 
 File existence and schema validation before processing
 
-Data Processing
+⚙️ Data Processing
 
 Azure Databricks is used for all transformations
 
 Delta Live Tables (DLT) implement structured ETL/ELT pipelines
 
-Data is processed using the Medallion Architecture:
+Data follows the Medallion Architecture:
 
 Bronze: Raw ingested data
 
@@ -64,7 +72,7 @@ Silver: Validated and enriched data
 
 Gold: Business-ready datasets
 
-Inventory Management
+📦 Inventory Management
 
 Inventory tables are updated only after pipeline validations pass
 
@@ -72,11 +80,11 @@ Sales reduce stock quantities
 
 Deliveries increase stock quantities
 
-Updates occur as part of controlled, automated workflows
+Updates occur through controlled, automated workflows
 
-Monitoring & Alerting
+🚨 Monitoring & Alerting
 
-Azure Logic Apps sends alerts for:
+Azure Logic Apps sends automated alerts for:
 
 Missing files
 
@@ -84,7 +92,7 @@ Schema validation failures
 
 Pipeline or DLT job failures
 
-Analytics Consumption
+📊 Analytics Consumption
 
 Gold-layer Delta tables are exposed to analysts
 
@@ -98,19 +106,23 @@ Delivery spend
 
 Daily profits
 
-Platform Design Principles
+🏗️ Platform Design Principles
 
-Single-source-of-truth using Delta Lake tables
+Single source of truth using Delta Lake
 
-Governed data access using Unity Catalog
+Governed data access via Unity Catalog
 
-Fault-tolerant pipelines with automated alerts
+Fault-tolerant pipelines with automated alerting
 
-Separation of concerns between orchestration (ADF) and processing (Databricks)
+Clear separation of concerns:
 
-Production-style CI/CD for Dev → Test → Prod deployments
+Orchestration → ADF
 
-Scope Clarification
+Processing → Databricks
+
+Production-style CI/CD (Dev → Test → Prod)
+
+📌 Scope Clarification
 
 This project focuses on:
 
@@ -129,23 +141,3 @@ Multiple locations
 Additional suppliers
 
 More retail domains
-
-Purpose of This Documentation
-
-This repository documents:
-
-Architecture decisions
-
-Pipeline design
-
-Orchestration patterns
-
-Data governance and testing strategy
-
-It is intended for:
-
-Hiring managers
-
-Data engineering interviewers
-
-Architects reviewing real-world Azure Databricks implementations
