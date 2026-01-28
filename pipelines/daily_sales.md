@@ -1,10 +1,10 @@
 # Daily Sales Pipeline
 
 ## Overview
-Processes daily sales transactions from the retail store and generates standardized sales facts for inventory and profit calculations.
+Processes sales transactions from the retail store every hour and generates standardized sales facts for inventory and profit calculations.
 
 ## Orchestration
-Azure Data Factory pipeline triggered on sales file arrival, with schema validation and control checks before execution.
+Azure Data Factory pipeline triggered **hourly** on sales file arrival, with schema validation and control checks before execution.
 
 ## Processing
 Implemented using Azure Databricks and Delta Live Tables, following the **Medallion Architecture (Bronze → Silver → Gold)** to transform raw sales data into analytics-ready facts.
@@ -25,7 +25,7 @@ Implemented using Azure Databricks and Delta Live Tables, following the **Medall
 - Product Price History  
 
 ## Snapshots
-- Azure Data Factory orchestration pipeline  
+- Azure Data Factory orchestration pipeline (hourly trigger)  
 - Databricks Delta Live Tables (DLT) DAG  
 - Azure Logic Apps alert workflow  
 - Automated Test Case Execution (Pytest) – snapshot of test coverage and validation results  
