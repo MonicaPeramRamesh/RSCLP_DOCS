@@ -7,22 +7,23 @@ Tracks historical supplier cost prices for products to support inventory valuati
 Event-driven Azure Data Factory pipeline triggered on supplier cost updates, including pre-run schema validation.
 
 ## Processing
-Built using Azure Databricks and Delta Live Tables, following the Medallion Architecture.
+Built using Azure Databricks and Delta Live Tables, following the **Medallion Architecture (Bronze → Silver → Gold)** with Delta tables stored in ADLS.
 
 ## Change Data Handling
 Supplier cost changes are managed using SCD Type 2 with DLT `APPLY CHANGES` to ensure historical accuracy.
 
 ## Reliability & Governance
-Data quality checks, schema enforcement, and Logic Apps–based alerting for failures or data issues.
+Schema enforcement, data quality rules, and controlled writes to ADLS-backed Delta tables.
+Azure Logic Apps provide alerting for validation failures or pipeline errors.
 
 ## Dependencies
 Used by inbound deliveries, inventory updates, and daily profit computation pipelines.
 
 ## Snapshots
-- ADF orchestration pipeline  
-- Databricks DLT DAG  
-- Logic Apps alert workflow  
+- Azure Data Factory orchestration pipeline  
+- Databricks Delta Live Tables (DLT) DAG  
+- Azure Logic Apps alert workflow  
 
 ## Code
-Implementation is available in the Databricks repository:  
+Databricks implementation is available at:  
 ➡️ https://github.com/<your-org>/RSCLP_ADB
