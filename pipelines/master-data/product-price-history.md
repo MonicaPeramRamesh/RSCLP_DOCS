@@ -1,29 +1,34 @@
-
 # Product Price History Pipeline (SCD Type 2)
 
 ## Overview
-Maintains historical selling prices for products to support accurate sales valuation and profit calculations.
+Tracks historical selling price changes for products to support accurate revenue and profit analysis.
 
 ## Orchestration
-Event-driven Azure Data Factory pipeline triggered on price update file uploads, with schema validation prior to execution.
+Event-driven Azure Data Factory pipeline triggered on price update file arrival, including schema validation checks.
 
 ## Processing
-Implemented in Azure Databricks using Delta Live Tables with a Bronze → Silver → Gold architecture.
+Built using Azure Databricks and Delta Live Tables, applying the **Medallion Architecture** for structured transformations.
+
+Delta tables are stored in **ADLS** and registered as **Unity Catalog external tables**.
 
 ## Change Data Handling
-Price changes are captured using SCD Type 2 via DLT `APPLY CHANGES`, preserving full price history.
+Selling price changes are handled using **SCD Type 2**, enabling time-based price analysis through DLT `APPLY CHANGES`.
 
 ## Reliability & Governance
-Schema enforcement, price sanity checks, and automated alerting via Logic Apps for validation or execution failures.
+- Schema enforcement and business rule validation  
+- Unity Catalog external tables for secure, governed access  
+- Azure Logic Apps for pipeline and data-quality alerts  
 
 ## Dependencies
-Consumed by daily sales and daily profit computation pipelines.
+Consumed by:
+- Daily Sales  
+- Daily Profit Computation  
 
 ## Snapshots
-- ADF orchestration pipeline  
-- Databricks DLT DAG  
-- Logic Apps alert workflow  
+- Azure Data Factory orchestration pipeline  
+- Databricks Delta Live Tables (DLT) DAG  
+- Azure Logic Apps alert workflow  
 
 ## Code
-Implementation is available in the Databricks repository:  
+Databricks implementation is available at:  
 ➡️ https://github.com/<your-org>/RSCLP_ADB
